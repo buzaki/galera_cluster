@@ -1,0 +1,36 @@
+version: '2'
+services:
+  node1:
+      build: .
+      image: xtradb
+      hostname: node1
+      container_name: node1
+      environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - CLUSTER_NAME=galera_cluster
+
+
+  node2:
+    build: .
+    image: xtradb
+    hostname: node2
+    container_name: node2
+    links:
+      - node1
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - CLUSTER_JOIN=node1
+      - CLUSTER_NAME=galera_cluster
+
+  node3:
+    build: .
+    image: xtradb
+    hostname: node3
+    container_name: node3
+    links:
+      - node1
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - CLUSTER_JOIN=node1
+      - CLUSTER_NAME=galera_cluster
+
