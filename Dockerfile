@@ -11,7 +11,7 @@ RUN sed -ri 's/^user\s/#&/' /etc/my.cnf \
 && chmod 777 /var/run/mysqld
 
 
-VOLUME ["/var/lib/mysql"]
+#VOLUME ["/var/lib/mysql"]
 
 
 ADD assets/my.cnf /etc/my.cnf
