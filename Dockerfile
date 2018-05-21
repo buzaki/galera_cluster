@@ -20,11 +20,6 @@ VOLUME ["/var/lib/mysql", "/var/log/mysql"]
 ADD assets/node.cnf /etc/my.cnf
 
 COPY assets/entrypoint.sh /entrypoint.sh
-COPY assets/jq /usr/bin/jq
-COPY assets/clustercheckcron /usr/bin/clustercheckcron
-
-RUN chmod a+x /usr/bin/jq
-RUN chmod a+x /usr/bin/clustercheckcron
 
 
 
